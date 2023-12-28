@@ -12,7 +12,7 @@ const dataAuth = {
     email: 'lipe@eu.com',
     senha: 123456
 }
-const notify = () => { toast.success('Conectado com sucesso') };
+const notify = () => toast.success('Conectado com sucesso');
 
 export const FormLogin = () => {
 
@@ -22,12 +22,11 @@ export const FormLogin = () => {
 
     const onSubmit = (data: FormData) => {
         //console.log(data)
-
-        if (data.email === dataAuth.email && data.senha === dataAuth.senha) {
-            //toast.success('Conectado com sucesso')
+        notify()
+        setTimeout(() => {
             Router.push('/logged/')
-            notify()
-        }
+        }, 1000);
+
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="w-full text-gray-200 h-full flex flex-col justify-around items-center">

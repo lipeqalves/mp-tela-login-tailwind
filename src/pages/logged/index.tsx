@@ -1,11 +1,13 @@
 import Router from 'next/router';
 import { DM_Sans } from 'next/font/google'
-
+import toast, { Toaster } from 'react-hot-toast';
 const dmSans = DM_Sans({ subsets: ['latin'] })
 import img from '../../assets/image_3.jpg'
+const notify = () => toast.success('Desconectado com sucesso');
 export default function Logged() {
 
     const handleLogout = () => {
+        notify()
         Router.push('/')
     }
 
@@ -24,6 +26,18 @@ export default function Logged() {
                 style={{ backgroundImage: `url(${img.src})` }}
             >
             </div>
+            <Toaster
+                position="top-right"
+                toastOptions={{
+                    style: {
+                        background: 'green',
+                        color: '#fff'
+                    },
+                    success: {
+                        duration: 5000,
+                    }
+                }}
+            />
         </div>
 
     )
